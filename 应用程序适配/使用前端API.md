@@ -24,6 +24,7 @@ f = frontend.FetchDescriptor( \
 `FetchDescriptor`支持以下参数：
 
 - `domain_name`，`app_name`，`subsections`：指定开发者名称，应用名称，和子路径；调用功能时会自动添加到路径中
+- `lang`：指定并且覆盖`clitheme`检测到的系统语言信息，并且使用自定义语言（如`zh_CN`，`en_US`，`en_US.UTF-8`等）
 - `debug_mode`：如果设置为`True`，调用功能时会输出更多信息，用于调试作用
 - `disable_lang`：如果设置为`True`，将会禁用自动语言检测，并且调用功能时将会永远使用当前主题定义中的`default`条目。
 
@@ -34,6 +35,33 @@ f = frontend.FetchDescriptor( \
 ```py
 f.debug_mode=True
 f.disable_lang=True
+```
+
+## 全局定义参数
+
+除了在`FetchDescriptor`中定义这些选项和参数，你可以对程序中所有的`FetchDescriptor`设置这些参数。以下变量定义会对所有的`FetchDescriptor`生效，除非创建`FetchDescriptor`时明确指定了这些参数。
+
+**请注意：** 这些全局定义只会影响之后新建的`FetchDescriptor`；更改或设定这些全局定义不会影响已经创建的的`FetchDescriptor`。
+
+```py
+from clitheme import frontend
+
+f=FetchDescriptor() # 不会使用定义的全局变量
+
+# 全局设定变量
+frontend.global_domain="" # 对应domain_name
+frontend.global_appname="" # 对应app_name
+frontend.global_subsections="" # 对应subsections
+frontend.global_debugmode=False # 对应debug_mode
+frontend.global_lang="" # 对应lang
+frontend.global_disablelang=False # 对应disable_lang
+
+# 会使用定义的全局变量
+f2=FetchDescriptor() 
+f3=FetchDescriptor()
+
+# 会忽略全局的global_debugmode=False定义，设定debug_f的debug_mode为True
+debug_f=FetchDescriptor(debug_mode=True) 
 ```
 
 ## 使用`retrieve_entry_or_fallback`函数
