@@ -41,7 +41,7 @@ f.disable_lang=True
 
 除了在`FetchDescriptor`中定义这些选项和参数，你可以对程序中所有的`FetchDescriptor`设置这些参数。以下变量定义会对所有的`FetchDescriptor`生效，除非创建`FetchDescriptor`时明确指定了这些参数。
 
-**请注意：** 这些全局定义只会影响之后新建的`FetchDescriptor`；更改或设定这些全局定义不会影响已经创建的的`FetchDescriptor`。
+**请注意：** 这些全局定义只会影响之后新建的`FetchDescriptor`；更改或设定这些全局定义不会影响已经创建的`FetchDescriptor`。
 
 ```py
 from clitheme import frontend
@@ -73,7 +73,7 @@ debug_f=FetchDescriptor(debug_mode=True)
 你也可以使用更简短的`reof`函数定义以减少代码量。
 
 ```py
-[...]
+# [...]
 # 对应com.example example-app example-subsection subsection-2 example-entry
 f.retrieve_entry_or_fallback("example-entry", "Default text goes here")
 
@@ -83,6 +83,19 @@ f.reof("example-entry", "Default text goes here")
 # 结果和上面相同
 f2=frontend.FetchDescriptor()
 f2.reof("com.example example-app example-subsection subsection-2 example-entry", "Default text goes here")
+```
+
+## 使用前端fallback模块
+
+你可以在你的项目中内置本项目提供的fallback模块，以便更好的处理`clitheme`模块不存在时的情况。该fallback模块包括了前端API中的所有定义和功能，并且会永远返回失败时的默认值（fallback）。
+
+如需使用，请在你的项目文件中导入仓库中的`clitheme_fallback.py`文件，并且在你的程序中包括以下代码：
+
+```py
+try:
+    from clitheme import frontend
+except (ModuleNotFoundError, ImportError):
+    import clitheme_fallback as frontend
 ```
 
 ## 样例
