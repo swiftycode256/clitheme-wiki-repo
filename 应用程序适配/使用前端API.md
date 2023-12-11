@@ -37,33 +37,6 @@ f.debug_mode=True
 f.disable_lang=True
 ```
 
-## 全局定义参数
-
-除了在`FetchDescriptor`中定义这些选项和参数，你可以对程序中所有的`FetchDescriptor`设置这些参数。以下变量定义会对所有的`FetchDescriptor`生效，除非创建`FetchDescriptor`时明确指定了这些参数。
-
-**请注意：** 这些全局定义只会影响之后新建的`FetchDescriptor`；更改或设定这些全局定义不会影响已经创建的`FetchDescriptor`。
-
-```py
-from clitheme import frontend
-
-f=FetchDescriptor() # 不会使用定义的全局变量
-
-# 全局设定变量
-frontend.global_domain="" # 对应domain_name
-frontend.global_appname="" # 对应app_name
-frontend.global_subsections="" # 对应subsections
-frontend.global_debugmode=False # 对应debug_mode
-frontend.global_lang="" # 对应lang
-frontend.global_disablelang=False # 对应disable_lang
-
-# 会使用定义的全局变量
-f2=FetchDescriptor() 
-f3=FetchDescriptor()
-
-# 会忽略全局的global_debugmode=False定义，设定debug_f的debug_mode为True
-debug_f=FetchDescriptor(debug_mode=True) 
-```
-
 ## 使用`retrieve_entry_or_fallback`函数
 
 如需获取当前主题定义的某个字符串，请使用`FetchDescriptor`中的`retrieve_entry_or_fallback`函数。调用时需要提供路径名称和默认字符串。如果当前主题设定没有适配该字符串，则函数会返回提供的默认字符串。你可以将这个函数调用包括在一个`print`语句中，以输出返回的结果。
@@ -83,6 +56,41 @@ f.reof("example-entry", "Default text goes here")
 # 结果和上面相同
 f2=frontend.FetchDescriptor()
 f2.reof("com.example example-app example-subsection subsection-2 example-entry", "Default text goes here")
+```
+
+## 全局定义参数
+
+除了在`FetchDescriptor`中定义这些选项和参数，你可以对程序中所有的`FetchDescriptor`设置这些参数。以下变量定义会对所有的`FetchDescriptor`生效，除非创建`FetchDescriptor`时明确指定了这些参数。
+
+**请注意：** 这些全局定义只会影响之后新建的`FetchDescriptor`；更改或设定这些全局定义不会影响已经创建的`FetchDescriptor`。
+
+```py
+from clitheme import frontend
+
+f0=frontend.FetchDescriptor() # 不会使用定义的全局变量
+
+# 默认值
+# frontend.global_domain=""
+# frontend.global_appname=""
+# frontend.global_subsections=""
+# frontend.global_debugmode=False
+# frontend.global_lang=""
+# frontend.global_disablelang=False
+
+# 全局设定变量
+frontend.global_domain="com.example" # 对应domain_name
+frontend.global_appname="example-app" # 对应app_name
+frontend.global_subsections="example-subsection subsection-2" # 对应subsections
+frontend.global_debugmode=False # 对应debug_mode
+frontend.global_lang="" # 对应lang（留空以使用系统语言）
+frontend.global_disablelang=False # 对应disable_lang
+
+# 会使用定义的全局变量
+f1=frontend.FetchDescriptor() 
+f2=frontend.FetchDescriptor()
+
+# 会忽略全局的global_debugmode=False定义，设定debug_mode为True
+f3=frontend.FetchDescriptor(debug_mode=True) 
 ```
 
 ## 使用前端fallback模块
