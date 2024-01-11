@@ -6,7 +6,7 @@
 
 ### `__init__`
 
-`__init__`(`domain_name`: `str`,`app_name`: `str`, `subsections`: `str`, `lang`: `str`, `debug_mode`: `bool`, `disable_lang`: `bool`)
+`FetchDescriptor`(`domain_name`: `str`,`app_name`: `str`, `subsections`: `str`, `lang`: `str`, `debug_mode`: `bool`, `disable_lang`: `bool`)
 
 创建新的`FetchDescriptor`实例。
 
@@ -17,15 +17,29 @@
 
 ### `retrieve_entry_or_fallback`
 
-`retrieve_entry_or_fallback`(`entry_path`: `str`, `fallback_string`: `str`) -> `str`
+`FetchDescriptor.retrieve_entry_or_fallback`(`entry_path`: `str`, `fallback_string`: `str`) -> `str`
+
+`FetchDescriptor.reof`(`entry_path`: `str`, `fallback_string`: `str`) -> `str`
 
 尝试根据提供的`entry_path`获取并返回对应的字符串。如果创建`FetchDescriptor`时指定了`domain_name`，`app_name`，和`subsections`，这些信息会自动被添加到`entry_path`的前面。
 
-如果找不到对应的字符串和路径名称，返回提供的`fallback_string`。
+如果找不到对应的字符串和路径名称，该函数会返回提供的`fallback_string`。
+
+### `format_entry_or_fallback`
+
+`FetchDescriptor.format_entry_or_fallback`(`entry_path`: `str`, `fallback_string`: `str`, `*args`, `**kwargs`) -> `str`
+
+`FetchDescriptor.feof`(`entry_path`: `str`, `fallback_string`: `str`, `*args`, `**kwargs`) -> `str`
+
+尝试根据提供的`entry_path`获取并返回通过提供的format参数（args和kwargs）格式化后的字符串。如果创建`FetchDescriptor`时指定了`domain_name`，`app_name`，和`subsections`，这些信息会自动被添加到`entry_path`的前面。
+
+如果找不到对应的字符串和路径名称，或者格式化获取的字符串时出现了错误，该函数会返回用format参数格式化后的`fallback_string`。
+
+**注意：** 请务必确保`fallback_string`能被成功使用`str.format`函数格式化，并且所有的format参数都被`fallback_string`引用，否则调用此函数时会发生错误。
 
 ### `entry_exists`
 
-`entry_exists`(`entry_path`: `str`) -> `bool`
+`FetchDescriptor.entry_exists`(`entry_path`: `str`) -> `bool`
 
 检查对应的路径名称和字符串是否存在。如果存在，返回`True`。否则，返回`False`。
 
