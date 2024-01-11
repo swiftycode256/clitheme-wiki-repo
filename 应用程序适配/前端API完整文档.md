@@ -10,8 +10,7 @@
 
 创建新的`FetchDescriptor`实例。所有的参数是可选的，不需要全部指定。
 
-- 指定`domain_name`，`app_name`，`subsections`以把这些数值自动添加到功能引用的参数中。
-- 指定`subsections`以把这些数值自动添加到功能引用的参数中（添加到`domain_name`+`app_name`后面）
+- 指定`domain_name`，`app_name`，和`subsections`以把这些数值自动添加到功能引用的参数中。
 - 指定`lang`以自定义使用的字符串语言。
 - 设定`debug_mode`为`True`以调用功能时输出更多用于调试的信息。
 - 设定`disable_lang`为`True`以禁用自定义和自动语言检测，并且永远使用字符串中的`default`语言定义。
