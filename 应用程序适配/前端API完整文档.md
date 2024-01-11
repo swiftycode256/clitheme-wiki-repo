@@ -52,13 +52,15 @@
 
 ### `set_local_themedef`
 
-`frontend.set_local_themedef`(`file_content`: `str`, `overlay`: `bool`=`False`)
+`frontend.set_local_themedef`(`file_content`: `str`, `overlay`: `bool`=`False`) -> `bool`
 
 设定本地定义文件。设定后，当系统全局主题设定没有请求的字符串时frontend会尝试调用本地定义文件里的定义。
 
-**注意：** 请将**文件内容**传递到这个函数中，不要传递文件路径名称。
+当设定成功时，该函数会返回`True`，否则该函数会返回`False`。
 
 - 设定`overlay`为`True`以把当前定义文件叠加到当前数据上。
+
+**注意：** 请将**文件内容**传递到这个函数中，不要传递文件的路径名称。
 
 ### `unset_local_themedef`
 
