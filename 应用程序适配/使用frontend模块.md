@@ -83,6 +83,12 @@ f.retrieve_entry_or_fallback("example-fmt-entry", "{0}: Current value is {value}
 
 除了在`FetchDescriptor`中定义这些选项和参数，你可以对程序中所有的`FetchDescriptor`设置这些参数。以下变量定义会对所有的`FetchDescriptor`生效，除非创建`FetchDescriptor`时明确指定了这些参数。
 
+- `global_domain`，`global_appname`，和`global_subsections`：指定了默认的`domain_name`，`app_name`，和`subsections`数值
+- `global_debugmode`：指定了默认的`debug_mode`数值
+    - 该数值也会控制`frontend.set_local_themedef`函数的输出（详见**调用本地主题定义文件**）
+- `global_lang`：指定了默认的`lang`数值
+- `global_disablelang`：指定了默认的`disable_lang`数值
+
 **请注意：** 这些全局定义只会影响之后新建的`FetchDescriptor`；更改或设定这些全局定义不会影响已经创建的`FetchDescriptor`。
 
 ```py
