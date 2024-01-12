@@ -25,6 +25,7 @@ f = frontend.FetchDescriptor( \
 
 - `domain_name`，`app_name`，`subsections`：指定开发者名称，应用名称，和子路径；调用功能时会自动添加到路径中
 - `lang`：指定并且覆盖`clitheme`检测到的系统语言信息，并且使用自定义语言（如`zh_CN`，`en_US`，`en_US.UTF-8`等）
+    - 你可以指定多个语言；只要用空格分开即可（如`en_US zh_CN`）。获取字符串时会按照顺序依次尝试获取对应语言的字符串定义。
 - `debug_mode`：如果设置为`True`，调用功能时会输出更多信息，用于调试作用
 - `disable_lang`：如果设置为`True`，将会禁用自动语言检测，并且调用功能时将会永远使用当前主题定义中的`default`条目。
 
@@ -41,9 +42,11 @@ f.disable_lang=True
 
 如需获取当前主题定义的某个字符串，请使用`FetchDescriptor`中的`retrieve_entry_or_fallback`函数。调用时需要提供路径名称和默认字符串。如果当前主题设定没有适配该字符串，则函数会返回提供的默认字符串。你可以将这个函数调用包括在一个`print`语句中，以输出返回的结果。
 
-该函数会读取系统上的语言设置（`$LANG`环境变量），并且会优先返回主题定义中对应语言的字符串。该行为可以在创建`FetchDescriptor`时禁用（详见上面）。
+该函数会读取系统上的语言设置（详见**自动语言检测**），并且会优先返回主题定义中对应语言的字符串。该行为可以在创建`FetchDescriptor`时禁用（详见上面）。
 
 你也可以使用更简短的`reof`函数定义以减少代码量。
+
+**注意：** 该函数返回的字符串（除返回`fallback_string`之外）不会包含任何末尾空格。
 
 ```py
 # [...]
@@ -108,4 +111,4 @@ except (ModuleNotFoundError, ImportError):
 
 ## 样例
 
-如需关于前端API调用的样例，请参考本仓库中的`clitheme_example.py`文件。
+如需关于前端API调用的样例，请参考本仓库中的`clitheme_demo.py`文件。
