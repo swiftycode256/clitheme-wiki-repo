@@ -1,12 +1,12 @@
 # 使用clitheme的frontend模块
 
-为了帮助开发者更方便的添加`clitheme`的适配，本项目提供了一个前端API（frontend）模块。这个模块包含了抓取当前主题中字符串的功能；只需要调用一个函数就可以了。除此之外，frontend还包括了其他的功能，比如检查当前的主题有没有适配请求的字符串。我打算将在后续版本中添加更多的功能，敬请期待。
+为了帮助开发者更方便的添加`clitheme`的适配，本项目提供了一个frontend模块。这个模块包含了抓取当前主题中字符串的功能；只需要调用一个函数就可以了。除此之外，frontend还包括了其他的功能，比如检查当前的主题有没有适配请求的字符串。我打算将在后续版本中添加更多的功能，敬请期待。
 
 **注意：** 目前frontend模块只支持使用Python 3编写的应用程序；其他语言编写的程序需要自行访问数据结构。如需更多信息，请见**路径名称和数据结构**。
 
 ## 新建`FetchDescriptor`类
 
-前端API使用了一个叫`FetchDescriptor`的一个类，并且所有的功能都包含在这个类里面。初始化`FetchDesciptor`时可以提供如开发者，应用名称，和子路径等信息，调用功能时会自动把这些信息添加到提供的路径名称中，帮你减少代码量。
+frontend模块使用了一个叫`FetchDescriptor`的一个类，并且所有的功能都包含在这个类里面。初始化`FetchDesciptor`时可以提供如开发者，应用名称，和子路径等信息，调用功能时会自动把这些信息添加到提供的路径名称中，帮你减少代码量。
 
 如需创建`FetchDescriptor`，请导入frontend模块，并参考以下代码：
 
@@ -114,9 +114,9 @@ f2=frontend.FetchDescriptor()
 f3=frontend.FetchDescriptor(debug_mode=True) 
 ```
 
-## 使用前端fallback模块
+## 使用fallback模块
 
-你可以在你的项目中内置本项目提供的fallback模块，以便更好的处理`clitheme`模块不存在时的情况。该fallback模块包括了前端API中的所有定义和功能，并且会永远返回失败时的默认值（fallback）。
+你可以在你的项目中内置本项目提供的fallback模块，以便更好的处理`clitheme`模块不存在时的情况。该fallback模块包括了frontend模块中的所有定义和功能，并且会永远返回失败时的默认值（fallback）。
 
 如需使用，请在你的项目文件中导入仓库中的`clitheme_fallback.py`文件，并且在你的程序中包括以下代码：
 
@@ -130,4 +130,4 @@ except (ModuleNotFoundError, ImportError):
 
 ## 样例
 
-如需关于前端API调用的样例，请参考本仓库中的`clitheme_demo.py`文件。
+如需关于使用frontend模块的样例，请参考本仓库中的`clitheme_demo.py`文件。

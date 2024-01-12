@@ -1,6 +1,6 @@
-# 前端API（frontend）文档
+# frontend模块完整文档
 
-本文章包括了`frontend`模块的完整文档。如需样例和更多信息，请参考上一个文章**使用前端API**。
+本文章包括了`frontend`模块的完整文档。如需样例和更多信息，请参考上一个文章**使用frontend模块**。
 
 ## `FetchDescriptor` 类
 
