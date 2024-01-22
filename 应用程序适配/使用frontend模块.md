@@ -1,0 +1,139 @@
+# 使用clitheme的frontend模块
+
+为了帮助开发者更方便的添加`clitheme`的适配，本项目提供了一个frontend模块。这个模块包含了抓取当前主题中字符串的功能；只需要调用一个函数就可以了。除此之外，frontend还包括了其他的功能，比如检查当前的主题有没有适配请求的字符串。我打算将在后续版本中添加更多的功能，敬请期待。
+
+**注意：** 目前frontend模块只支持使用Python 3编写的应用程序；其他语言编写的程序需要自行访问数据结构。如需更多信息，请见[**路径名称和数据结构**](路径名称和数据结构.md)。
+
+## 新建`FetchDescriptor`类
+
+frontend模块使用了一个叫`FetchDescriptor`的一个类，并且所有的功能都包含在这个类里面。初始化`FetchDesciptor`时可以提供如开发者，应用名称，和子路径等信息，调用功能时会自动把这些信息添加到提供的路径名称中，帮你减少代码量。
+
+如需创建`FetchDescriptor`，请导入frontend模块，并参考以下代码：
+
+```py
+from clitheme import frontend
+
+f = frontend.FetchDescriptor( \
+    domain_name="com.example", \
+    app_name="example-app", \
+    subsections="example-subsection subsection-2" \
+    lang="en_US" \ 
+    debug_mode=False, \
+    disable_lang=False)
+```
+
+`FetchDescriptor`支持以下参数：
+
+- `domain_name`，`app_name`，`subsections`：指定开发者名称，应用名称，和子路径；调用功能时会自动添加到路径中
+- `lang`：指定并且覆盖`clitheme`检测到的系统语言信息（详见[**多语言支持**](../多语言支持.md)），并且使用该参数定义的语言信息（如`zh_CN`，`en_US`，`en_US.UTF-8`等）
+    - 你可以指定多个语言；只要用空格分开即可（如`en_US zh_CN`）。获取字符串时会按照顺序依次尝试获取对应语言的字符串定义。
+- `debug_mode`：如果设置为`True`，调用功能时会输出更多信息，用于调试作用
+- `disable_lang`：如果设置为`True`，将会禁用自动语言检测，并且调用功能时将会永远使用当前主题定义中的`default`条目。
+
+### 创建后修改参数/设置
+
+你可以在创建`FetchDescriptor`后修改这些参数；只需要修改对应的变量就可以了。比如说：
+
+```py
+f.debug_mode=True
+f.disable_lang=True
+```
+
+## 使用`retrieve_entry_or_fallback`函数
+
+如需获取当前主题定义的某个字符串，请使用`FetchDescriptor`中的`retrieve_entry_or_fallback`函数。调用时需要提供路径名称和默认字符串。如果当前主题设定没有适配该字符串，则该函数会返回提供的默认字符串。你可以将这个函数调用包括在一个`print`语句中，以输出返回的结果。
+
+该函数会读取系统上的语言设置（详见[**多语言支持**](../多语言支持.md)），并且会优先返回主题定义中对应语言的字符串。该行为可以在创建`FetchDescriptor`时禁用（详见上面）。
+
+你也可以使用更简短的`reof`函数定义以减少代码量。
+
+**注意：** 该函数返回的字符串（除返回`fallback_string`之外）不会包含任何末尾空格。
+
+```py
+# [对接上方的f=FetchDescriptor(...)定义]
+
+# 对应com.example example-app example-subsection subsection-2 example-entry
+f.retrieve_entry_or_fallback("example-entry", "Default text goes here")
+
+# 你也可以使用reof函数，输出结果相同
+f.reof("example-entry", "Default text goes here")
+
+# 结果和上面相同
+f2=frontend.FetchDescriptor()
+f2.reof("com.example example-app example-subsection subsection-2 example-entry", "Default text goes here")
+```
+
+## 使用`format_entry_or_fallback`函数
+
+如果获取字符串后需要使用`str.format`函数格式化字符串，你可以使用`FetchDescriptor`中的`format_entry_or_fallback`函数。该函数可以自动帮你处理因字符串格式不正确导致的报错，防止格式不正确的字符串定义导致你的应用程序无法正常运行的问题。如果当前主题设定没有适配该字符串或者格式化获取的字符串时出现错误，则该函数会返回提供的默认字符串。
+
+你也可以使用更简短的`feof`函数定义以减少代码量。
+
+如需使用此函数，请将路径名称，默认字符串，和用于`str.format`的参数提供到函数中。
+
+```py
+# 默认字符串返回值："program: Current value is 1"
+f.format_entry_or_fallback("example-fmt-entry", "{0}: Current value is {value}", "program", value="1")
+
+# 该函数调用等于以下代码：
+f.retrieve_entry_or_fallback("example-fmt-entry", "{0}: Current value is {value}").format("program", value="1")
+```
+
+## 全局定义参数
+
+除了在`FetchDescriptor`中定义这些选项和参数，你可以对程序中所有的`FetchDescriptor`设置这些参数。以下变量定义会对所有的`FetchDescriptor`生效，除非创建`FetchDescriptor`时明确指定了这些参数。
+
+- `global_domain`，`global_appname`，和`global_subsections`：指定了默认的`domain_name`，`app_name`，和`subsections`数值
+- `global_debugmode`：指定了默认的`debug_mode`数值
+    - 该数值也会控制`frontend.set_local_themedef`函数的输出（详见[**调用本地主题定义文件**](调用本地主题定义文件.md)）
+- `global_lang`：指定了默认的`lang`数值
+- `global_disablelang`：指定了默认的`disable_lang`数值
+
+**请注意：** 这些全局定义只会影响之后新建的`FetchDescriptor`；更改或设定这些全局定义不会影响已经创建的`FetchDescriptor`。
+
+```py
+from clitheme import frontend
+
+f0=frontend.FetchDescriptor() # 不会使用定义的全局变量
+
+# 默认值：
+# frontend.global_domain=""
+# frontend.global_appname=""
+# frontend.global_subsections=""
+# frontend.global_debugmode=False
+# frontend.global_lang=""
+# frontend.global_disablelang=False
+
+# 全局设定变量
+frontend.global_domain="com.example" # 对应domain_name
+frontend.global_appname="example-app" # 对应app_name
+frontend.global_subsections="example-subsection subsection-2" # 对应subsections
+frontend.global_debugmode=False # 对应debug_mode
+frontend.global_lang="" # 对应lang（留空以使用系统语言）
+frontend.global_disablelang=False # 对应disable_lang
+
+# 会使用定义的全局变量
+f1=frontend.FetchDescriptor() 
+f2=frontend.FetchDescriptor()
+
+# 会忽略全局的global_debugmode=False定义，设定debug_mode为True
+f3=frontend.FetchDescriptor(debug_mode=True) 
+```
+
+## 使用fallback模块
+
+你可以在你的项目中内置本项目提供的fallback模块，以便更好的处理`clitheme`模块不存在时的情况。该fallback模块包括了frontend模块中的所有定义和功能，并且会永远返回失败时的默认值（fallback）。
+
+如需使用，请在你的项目文件中导入仓库中的`clitheme_fallback.py`文件，并且在你的程序中包括以下代码：
+
+```py
+try:
+    from clitheme import frontend
+except (ModuleNotFoundError, ImportError):
+    import clitheme_fallback as frontend
+```
+本项目提供的fallback文件会随版本更新而更改，所以请定期往你的项目里导入最新的fallback文件以获得最新的功能。
+
+## 样例
+
+如需关于使用frontend模块的样例，请参考本仓库中的`clitheme_demo.py`文件。
