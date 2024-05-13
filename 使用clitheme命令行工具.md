@@ -1,4 +1,4 @@
-# 使用命令行界面
+# 使用`clitheme`命令行工具
 
 `clitheme`的命令行界面包含了大部分面向用户的功能，比如设置和修改主题、获取当前主题信息等。
 
@@ -6,21 +6,23 @@
 
 如果你是通过软件包安装的，一般情况下直接在命令行上执行`clitheme`就可以了。你也可以执行`python3 -m clitheme`，如果`clitheme`不可用。
 
-```
+```plaintext
 $ clitheme
-Usage: /usr/bin/clitheme apply-theme [themedef-file] [--overlay] [--preserve-temp]
-       /usr/bin/clitheme get-current-theme-info
-       /usr/bin/clitheme unset-current-theme
-       /usr/bin/clitheme generate-data [themedef-file] [--overlay]
-       /usr/bin/clitheme --help
-       /usr/bin/clitheme --version
-Error: no command or option specified
+Usage: clitheme apply-theme [themedef-file] [--overlay] [--preserve-temp]
+       clitheme get-current-theme-info
+       clitheme unset-current-theme
+       clitheme generate-data [themedef-file] [--overlay]
+       clitheme --help
+       clitheme --version
 ```
 
-如果你使用的是最新的开发版本，则需要直接执行仓库中的`cli.py`文件。
+如果你使用的是最新的开发版本，则需要直接调用仓库中的模块文件。
 
-    $ src/clitheme/cli.py
-    <...>
+```plaintext
+# 在仓库根目录执行：
+$ python3 -m src.clitheme
+<...>
+```
 
 ## `apply-theme` - 应用主题
 
@@ -53,7 +55,7 @@ Theme applied successfully
 
 在该模式下，该指令会输出临时目录的路径。你可以通过此路径查看被保留的临时目录。
 
-```
+```plaintext
 $ clitheme apply-theme --preserve-temp example-theme.clithemedef.txt 
 ==> Generating data...
 Successfully generated data
@@ -66,7 +68,7 @@ Theme applied successfully
 
 如需取消应用或删除当前的主题数据，请使用`unset-current-theme`指令。删除数据后，支持的应用程序会停止使用自定义的字符串。
 
-```
+```plaintext
 $ clitheme unset-current-theme
 Successfully removed the current theme data
 ```
@@ -75,7 +77,7 @@ Successfully removed the current theme data
 
 如需获取当前的主题信息，请使用`get-current-theme-info`指令。该指令会输出主题的详细信息，包括名称，版本，支持的语言和应用程序等。
 
-```
+```plaintext
 $ clitheme get-current-theme-info
 Currently installed theme: 
 [1]: Example theme
@@ -91,7 +93,7 @@ Supported apps:
 
 如果通过数据叠加选项同时应用了多个主题，该指令会显示叠加历史记录，从最新应用的主题往下排序。
 
-```
+```plaintext
 $ clitheme get-current-theme-info
 Overlay history (sorted by latest installed):
 [2]: 颜文字样例主题
@@ -120,7 +122,7 @@ Supported apps:
 
 你也可以同时指定多个文件，原理和`apply-theme`一样。
 
-```
+```plaintext
 $ clitheme generate-data example-theme.clithemedef.txt
 ==> Generating data...
 Successfully generated data
@@ -131,9 +133,9 @@ View at /tmp/clitheme-temp-XXXXXXXX
 
 `--version`指令会输出版本信息，比如：
 
-```
+```plaintext
 $ clitheme --version
-clitheme version 1.1-r1
+clitheme version 2.0
 ```
 
-详细请见[**关于版本的重要信息**](../关于版本的重要信息.md)。
+详细请见[**关于版本的重要信息**](/关于版本的重要信息.md)。
