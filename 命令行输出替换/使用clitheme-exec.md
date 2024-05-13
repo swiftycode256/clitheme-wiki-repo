@@ -2,6 +2,26 @@
 
 使用`clitheme-exec`执行命令行指令以应用主题定义文件中的输出匹配规则。你可以使用输出调试选项来获得所需的输出信息，更好的编写匹配规则。
 
+你可以使用`clitheme-exec`或`python3 -m clitheme.exec`：
+
+```plaintext
+$ clitheme-exec
+使用方式：
+        clitheme-exec [--debug] [--debug-color] [--debug-newlines] [--debug-showchars] [command]
+错误：未指定命令
+使用"clitheme-exec --help"以获取使用方式
+$ python3 -m clitheme.exec
+<...>
+```
+
+注意：如需在代码仓库文件夹中调用`clitheme-exec`，请调用仓库中的模块文件：
+
+```plaintext
+# 在仓库根目录中执行：
+$ python3 -m src.clitheme.exec
+<...>
+```
+
 ## 执行命令
 
 只需要在你想执行的命令的前面添加`clitheme-exec`就可以了，比如`clitheme-exec ls`或`clitheme-exec gcc test.c`。
