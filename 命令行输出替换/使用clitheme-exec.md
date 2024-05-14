@@ -62,4 +62,6 @@ $ sudo clitheme-exec some-command
 
 ```plaintext
 $ clitheme-exec --debug --debug-showchars gcc something.c
+# 不要这样子写：
+$ clitheme-exec gcc something.c --debug --debug-showchars
 ```
