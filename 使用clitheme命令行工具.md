@@ -28,7 +28,7 @@ $ python3 -m src.clitheme
 
 如需应用主题定义文件，请使用`apply-theme`指令，并且提供文件名称。比如：
 
-```
+```plaintext
 $ clitheme apply-theme example-theme.clithemedef.txt
 ==> Generating data...
 Successfully generated data
