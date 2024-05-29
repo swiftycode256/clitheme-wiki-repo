@@ -57,6 +57,7 @@ $ sudo clitheme-exec some-command
     - ASCII Backspace符号（`\x08`）
     - ASCII Bell符号（`\x07`）
 - `--debug-newlines`：永远用新的一行显示所有输出（用于末尾没有换行的输出内容）
+- `--debug-nosubst`：不进行任何输出替换，即使已设定主题
 
 如需设定这些选项，请在**指定命令之前**指定这些选项，比如说：
 
