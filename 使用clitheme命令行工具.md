@@ -8,12 +8,14 @@
 
 ```plaintext
 $ clitheme
-Usage: clitheme apply-theme [themedef-file] [--overlay] [--preserve-temp]
-       clitheme get-current-theme-info
-       clitheme unset-current-theme
-       clitheme generate-data [themedef-file] [--overlay]
-       clitheme --help
-       clitheme --version
+Usage:
+	clitheme apply-theme [themedef-file] [--overlay] [--preserve-temp]
+	clitheme get-current-theme-info
+	clitheme unset-current-theme
+	clitheme update-theme
+	clitheme generate-data [themedef-file] [--overlay]
+	clitheme --version
+	clitheme --help
 ```
 
 如果你使用的是最新的开发版本，则需要直接调用仓库中的模块文件。
@@ -35,19 +37,20 @@ Successfully generated data
 ==> Applying theme...
 Theme applied successfully
 ```
-执行这个指令后，支持的应用程序会使用文件中定义的字符串。
+
+**提示：** 你可以同时指定多个文件名称，以同时应用这些文件的定义。指定的文件会以从左到右的顺序应用，比如`clitheme apply-theme file1 file2`会先应用`file1`然后再应用`file2`，相当于先应用`file1`然后把`file2`中的定义叠加到当前数据上。
 
 ### 主题数据叠加
 
 默认情况下，这个指令会覆盖之前的主题数据。你可以通过`--overlay`选项以叠加定义和数据。新的字符串会被添加到当前的数据中，并且已存在的字符串会被覆盖。
 
-    $ clitheme apply-theme --overlay example-theme.clithemedef.txt
+```plaintext
+$ clitheme apply-theme --overlay example-theme.clithemedef.txt
+```
 
 **注意：** 使用此选项时需要确保之前已经设定过主题。
 
 **提示：** 你可以通过此方法叠加多个语言但字符串路径名称相同的的主题定义文件，因为该功能只会覆盖字符串对应的语言。
-
-**提示：** 你可以同时指定多个文件名称，以同时应用这些文件的定义。指定的文件会以从左到右的顺序应用，比如`clitheme apply-theme file1 file2`会先应用`file1`然后再应用`file2`，相当于先应用`file1`然后把`file2`中的定义叠加到当前数据上。
 
 ### 保留临时数据结构目录
 
@@ -71,6 +74,20 @@ Theme applied successfully
 ```plaintext
 $ clitheme unset-current-theme
 Successfully removed the current theme data
+```
+
+## `update-theme` - 重新应用之前的主题定义文件
+
+`update-theme`指令会重新应用在之前`apply-theme`操作中指定的主题定义文件，方便修改这些文件时重新应用更改（无需重新指定文件路径）。如果在之前的`apply-theme`操作中使用了`--overlay`选项，则会使用之前所有有关的`apply-theme`操作中指定的文件（当前主题定义中用到的）。
+
+使用这个指令时，请确保之前使用的主题定义文件没有被删除或移动，否则操作会失败。
+
+```plaintext
+$ clitheme update-theme
+==> Generating data...
+Successfully generated data
+==> Applying theme...
+Theme applied successfully
 ```
 
 ## `get-current-theme-info` - 获取当前主题信息
@@ -116,7 +133,7 @@ Supported apps:
 
 ## `generate-data` - 生成数据结构
 
-使用`generate-data`指令会在临时目录中生成数据结构。该指令的功能和`apply-theme`指令相似，只是不会应用主题而已。该指令用于调试和开发用途。
+使用`generate-data`指令会在临时目录中生成数据结构。该指令的功能和`apply-theme`指令相似，只是不会应用主题而已。**该指令仅用于调试和开发用途。**
 
 指定`--overlay`选项以生成把主题文件叠加在当前数据上的数据结构，用法和`apply-theme`相同。
 
