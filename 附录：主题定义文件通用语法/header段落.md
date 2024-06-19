@@ -20,6 +20,8 @@
 - `locales`：定义主题支持哪些语言。如果支持多个语言，请使用空格分开。比如：`en_US zh_CN`或`English Chinese`
 - `supported_apps`：定义主题支持的应用程序。如果支持多个应用程序，请使用空格分开。比如：`example-app example-app-2 another-example-app`
 
+**注意：** 除了`description`定义以外，定义内容中的任何终端控制符号和不可见字符使用`clitheme get-current-theme-info`时将会以明文输出（比如`<\x1b>`）。所以，请不要在这些地方使用终端控制符号；它们不会生效。
+
 下面将展示一个`header`段落样例：
 
 ```plaintext
