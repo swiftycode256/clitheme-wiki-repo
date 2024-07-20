@@ -1,6 +1,6 @@
 # frontend模块完整文档
 
-本文章包括了`frontend`模块的完整文档。如需样例和更多信息，请参考[**使用frontend模块**](使用frontend模块.md)。
+本文章包括了`frontend`模块的完整文档。如需样例和更多信息，请参考[**使用frontend模块**](3.%20使用frontend模块.md)。
 
 ## `FetchDescriptor` 类
 
