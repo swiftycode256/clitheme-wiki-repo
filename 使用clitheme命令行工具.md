@@ -32,8 +32,8 @@ $ python3 -m src.clitheme
 
 ```plaintext
 $ clitheme apply-theme example-theme.clithemedef.txt
-==> Generating data...
-Successfully generated data
+==> Processing files...
+Successfully processed files
 ==> Applying theme...
 Theme applied successfully
 ```
@@ -60,8 +60,8 @@ $ clitheme apply-theme --overlay example-theme.clithemedef.txt
 
 ```plaintext
 $ clitheme apply-theme --preserve-temp example-theme.clithemedef.txt 
-==> Generating data...
-Successfully generated data
+==> Processing files...
+Successfully processed files
 View at /tmp/clitheme-temp-XXXXXXXX
 ==> Applying theme...
 Theme applied successfully
@@ -84,8 +84,8 @@ Successfully removed the current theme data
 
 ```plaintext
 $ clitheme update-theme
-==> Generating data...
-Successfully generated data
+==> Processing files...
+Successfully processed files
 ==> Applying theme...
 Theme applied successfully
 ```
@@ -141,8 +141,8 @@ Supported apps:
 
 ```plaintext
 $ clitheme generate-data example-theme.clithemedef.txt
-==> Generating data...
-Successfully generated data
+==> Processing files...
+Successfully processed files
 View at /tmp/clitheme-temp-XXXXXXXX
 ```
 
