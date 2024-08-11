@@ -2,7 +2,7 @@
 
 [**项目简介和样例展示**](./简介.md)
 
-clitheme项目的Wiki文档可以在这里查看：https://gitee.com/swiftycode/clitheme/wikis/pages
+clitheme项目的Wiki文档可以在这里查看：https://gitee.com/swiftycode/clitheme/wikis
 
 这些Wiki文档也可以在这个仓库内查看：https://gitee.com/swiftycode/clitheme-wiki-repo
 
@@ -12,7 +12,7 @@ GitHub镜像仓库：https://github.com/swiftycode256/clitheme-wiki-repo
 
 # clitheme Wiki pages (`v2.0-dev`)
 
-The Wiki pages for the clitheme project can be viewed here: https://gitee.com/swiftycode/clitheme/wikis/pages 
+The Wiki pages for the clitheme project can be viewed here: https://gitee.com/swiftycode/clitheme/wikis
 
 It is also available in this repository: https://gitee.com/swiftycode/clitheme-wiki-repo
 
