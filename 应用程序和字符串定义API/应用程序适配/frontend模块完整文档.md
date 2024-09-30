@@ -61,6 +61,19 @@
 
 **注意：** 请将**文件内容**传递到这个函数中，不要传递文件的路径名称。
 
+### `set_local_themedefs`
+
+`frontend.set_local_themedefs`(`file_contents`: `list[str]`, `overlay`: `bool`=`False`) -> `bool`
+
+同时设定多个本地定义文件。该函数与以下操作类似：
+
+```py
+frontend.set_local_themedef(file_content1, overlay=overlay)
+frontend.set_local_themedef(file_content2, overlay=True)
+frontend.set_local_themedef(file_content3, overlay=True)
+# ...
+```
+
 ### `unset_local_themedef`
 
 `frontend.unset_local_themedef`()
