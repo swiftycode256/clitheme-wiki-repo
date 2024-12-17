@@ -10,7 +10,7 @@
 $ clitheme
 Usage:
 	clitheme apply-theme [themedef-file] [--overlay] [--preserve-temp]
-	clitheme get-current-theme-info
+	clitheme get-current-theme-info [--name] [--file-path]
 	clitheme unset-current-theme
 	clitheme update-theme
 	clitheme generate-data [themedef-file] [--overlay]
@@ -96,7 +96,7 @@ Theme applied successfully
 
 ```plaintext
 $ clitheme get-current-theme-info
-Currently installed theme: 
+Currently installed theme(s):
 [1]: Example theme
 Version: 1.0
 Supported locales: 
@@ -106,29 +106,38 @@ Supported apps:
 • example-app
 • example-app-two
 • another-example
-```
 
-如果通过数据叠加选项同时应用了多个主题，该指令会显示叠加历史记录，从最新应用的主题往下排序。
-
-```plaintext
-$ clitheme get-current-theme-info
-Overlay history (sorted by latest installed):
 [2]: 颜文字样例主题
 Version: 1.0
 Supported locales: 
 • zh_CN
 Supported apps: 
 • clitheme_example
+```
 
+你可以指定`--name`选项以仅显示每个主题的名称或`--file-path`以仅显示每个主题的源文件路径。同时指定这两个选项时，名称和路径都会显示。
+
+```plaintext
+$ clitheme get-current-theme-info --name
+Currently installed theme(s):
 [1]: Example theme
-Version: 1.0
-Supported locales: 
-• en_US
-• zh_CN
-Supported apps: 
-• example-app
-• example-app-two
-• another-example
+[2]: 颜文字样例主题
+```
+
+```plaintext
+$ clitheme get-current-theme-info --file-path
+Currently installed theme(s):
+/home/user/Documents/example-theme.clithemedef.txt
+/home/user/Documents/textemojis.clithemedef.txt
+```
+
+```plaintext
+$ clitheme get-current-theme-info --name --file-path
+Currently installed theme(s):
+[1]: Example theme
+/home/user/Documents/example-theme.clithemedef.txt
+[2]: 颜文字样例主题
+/home/user/Documents/textemojis.clithemedef.txt
 ```
 
 ## `generate-data` - 生成数据结构
