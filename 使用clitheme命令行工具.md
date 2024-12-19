@@ -9,10 +9,10 @@
 ```plaintext
 $ clitheme
 Usage:
-	clitheme apply-theme [themedef-file] [--overlay] [--preserve-temp]
+	clitheme apply-theme [themedef-file] [--overlay] [--preserve-temp] [--yes]
 	clitheme get-current-theme-info [--name] [--file-path]
 	clitheme unset-current-theme
-	clitheme update-theme
+	clitheme update-theme [--yes]
 	clitheme generate-data [themedef-file] [--overlay]
 	clitheme --version
 	clitheme --help
@@ -37,6 +37,8 @@ Successfully processed files
 ==> Applying theme...
 Theme applied successfully
 ```
+
+你可以指定`--yes`选项以跳过确认提示。
 
 **提示：** 你可以同时指定多个文件名称，以同时应用这些文件的定义。指定的文件会以从左到右的顺序应用，比如`clitheme apply-theme file1 file2`会先应用`file1`然后再应用`file2`，相当于先应用`file1`然后把`file2`中的定义叠加到当前数据上。
 
@@ -81,6 +83,8 @@ Successfully removed the current theme data
 `update-theme`指令会重新应用在之前`apply-theme`操作中指定的主题定义文件，方便修改这些文件时重新应用更改（无需重新指定文件路径）。如果在之前的`apply-theme`操作中使用了`--overlay`选项，则会使用之前所有有关的`apply-theme`操作中指定的文件（当前主题定义中用到的）。
 
 使用这个指令时，请确保之前使用的主题定义文件没有被删除或移动，否则操作会失败。
+
+你可以指定`--yes`选项以跳过确认提示。
 
 ```plaintext
 $ clitheme update-theme
