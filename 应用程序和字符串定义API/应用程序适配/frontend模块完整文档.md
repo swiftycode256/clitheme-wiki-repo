@@ -61,32 +61,69 @@
 
 **注意：** 请将**文件内容**传递到这个函数中，不要传递文件的路径名称。
 
+### `set_local_themedefs`
+
+`frontend.set_local_themedefs`(`file_contents`: `list[str]`, `overlay`: `bool`=`False`) -> `bool`
+
+同时设定多个本地定义文件。该函数与以下操作类似：
+
+```py
+frontend.set_local_themedef(file_content1, overlay=overlay)
+frontend.set_local_themedef(file_content2, overlay=True)
+frontend.set_local_themedef(file_content3, overlay=True)
+# ...
+```
+
 ### `unset_local_themedef`
 
 `frontend.unset_local_themedef`()
 
 取消设定本地定义文件。取消设定后frontend将不再尝试调用本地定义文件。
 
-## 全局变量和选项
+## 设定默认参数值
 
-以下的变量定义会对所有之后创建的`FetchDescriptor`生效，除非定义`FetchDescriptor`时指定了其他的数值。
+以下的函数操作会对**在本文件内**所有之后创建的`FetchDescriptor`生效，除非定义`FetchDescriptor`时指定了其他的数值。你可以指定`None`为数值来取消设定默认值。
 
-### `global_domain`
+### `set_domain`
+
+`frontend.set_domain`(`value`: `str | None`)
 
 设定默认的`domain_name`数值。
 
-### `global_appname`
+### `set_appname`
+
+`frontend.set_appname`(`value`: `str | None`)
 
 设定默认的`app_name`数值。
 
-### `global_subsections`
+### `set_subsections`
+
+`frontend.set_subsections`(`value`: `str | None`)
 
 设定默认的`global_subsections`数值。
 
-### `global_lang`
+### `set_debugmode`
+
+`frontend.set_debugmode`(`value`: `bool | None`)
+
+设定默认的`debug_mode`数值。
+
+### `set_lang`
+
+`frontend.set_lang`(`value`: `str | None`)
 
 设定默认的`lang`数值。
 
-### `global_disablelang`
+### `set_disablelang`
+
+`frontend.set_disablelang`(`value`: `bool | None`)
 
 设定默认的`disable_lang`数值。
+
+---
+
+你也可以修改以下全局变量来设定默认值。该定义会对一个模块中的**所有文件**生效，并且没有通过以上函数进行设定（或取消设定）时会被使用。
+
+### `global_domain`, `global_appname`, `global_subsections`, `global_debugmode`, `global_lang`, `global_disablelang`
+
+全局设定默认数值。

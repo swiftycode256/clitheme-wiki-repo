@@ -9,10 +9,10 @@
 ```plaintext
 $ clitheme
 Usage:
-	clitheme apply-theme [themedef-file] [--overlay] [--preserve-temp]
-	clitheme get-current-theme-info
+	clitheme apply-theme [themedef-file] [--overlay] [--preserve-temp] [--yes]
+	clitheme get-current-theme-info [--name] [--file-path]
 	clitheme unset-current-theme
-	clitheme update-theme
+	clitheme update-theme [--yes]
 	clitheme generate-data [themedef-file] [--overlay]
 	clitheme --version
 	clitheme --help
@@ -32,11 +32,13 @@ $ python3 -m src.clitheme
 
 ```plaintext
 $ clitheme apply-theme example-theme.clithemedef.txt
-==> Generating data...
-Successfully generated data
+==> Processing files...
+Successfully processed files
 ==> Applying theme...
 Theme applied successfully
 ```
+
+你可以指定`--yes`选项以跳过确认提示。
 
 **提示：** 你可以同时指定多个文件名称，以同时应用这些文件的定义。指定的文件会以从左到右的顺序应用，比如`clitheme apply-theme file1 file2`会先应用`file1`然后再应用`file2`，相当于先应用`file1`然后把`file2`中的定义叠加到当前数据上。
 
@@ -60,8 +62,8 @@ $ clitheme apply-theme --overlay example-theme.clithemedef.txt
 
 ```plaintext
 $ clitheme apply-theme --preserve-temp example-theme.clithemedef.txt 
-==> Generating data...
-Successfully generated data
+==> Processing files...
+Successfully processed files
 View at /tmp/clitheme-temp-XXXXXXXX
 ==> Applying theme...
 Theme applied successfully
@@ -82,10 +84,12 @@ Successfully removed the current theme data
 
 使用这个指令时，请确保之前使用的主题定义文件没有被删除或移动，否则操作会失败。
 
+你可以指定`--yes`选项以跳过确认提示。
+
 ```plaintext
 $ clitheme update-theme
-==> Generating data...
-Successfully generated data
+==> Processing files...
+Successfully processed files
 ==> Applying theme...
 Theme applied successfully
 ```
@@ -96,7 +100,7 @@ Theme applied successfully
 
 ```plaintext
 $ clitheme get-current-theme-info
-Currently installed theme: 
+Currently installed theme(s):
 [1]: Example theme
 Version: 1.0
 Supported locales: 
@@ -106,29 +110,38 @@ Supported apps:
 • example-app
 • example-app-two
 • another-example
-```
 
-如果通过数据叠加选项同时应用了多个主题，该指令会显示叠加历史记录，从最新应用的主题往下排序。
-
-```plaintext
-$ clitheme get-current-theme-info
-Overlay history (sorted by latest installed):
 [2]: 颜文字样例主题
 Version: 1.0
 Supported locales: 
 • zh_CN
 Supported apps: 
 • clitheme_example
+```
 
+你可以指定`--name`选项以仅显示每个主题的名称或`--file-path`以仅显示每个主题的源文件路径。同时指定这两个选项时，名称和路径都会显示。
+
+```plaintext
+$ clitheme get-current-theme-info --name
+Currently installed theme(s):
 [1]: Example theme
-Version: 1.0
-Supported locales: 
-• en_US
-• zh_CN
-Supported apps: 
-• example-app
-• example-app-two
-• another-example
+[2]: 颜文字样例主题
+```
+
+```plaintext
+$ clitheme get-current-theme-info --file-path
+Currently installed theme(s):
+/home/user/Documents/example-theme.clithemedef.txt
+/home/user/Documents/textemojis.clithemedef.txt
+```
+
+```plaintext
+$ clitheme get-current-theme-info --name --file-path
+Currently installed theme(s):
+[1]: Example theme
+/home/user/Documents/example-theme.clithemedef.txt
+[2]: 颜文字样例主题
+/home/user/Documents/textemojis.clithemedef.txt
 ```
 
 ## `generate-data` - 生成数据结构
@@ -141,8 +154,8 @@ Supported apps:
 
 ```plaintext
 $ clitheme generate-data example-theme.clithemedef.txt
-==> Generating data...
-Successfully generated data
+==> Processing files...
+Successfully processed files
 View at /tmp/clitheme-temp-XXXXXXXX
 ```
 
