@@ -94,6 +94,20 @@ Successfully processed files
 Theme applied successfully
 ```
 
+## `repair-theme` - 修复/重新生成主题数据
+
+`repair-theme`指令会使用当前数据中存储的定义文件来重新生成并应用主题数据，达到修复定义信息和数据库的目的。**该指令仅用于调试和开发用途。**
+
+```plaintext
+$ clitheme repair-theme
+==> Processing files...
+Successfully processed files
+==> Applying theme...
+Theme applied successfully
+==> Updating info...
+Successfully updated info
+```
+
 ## `get-current-theme-info` - 获取当前主题信息
 
 如需获取当前的主题信息，请使用`get-current-theme-info`指令。该指令会输出主题的详细信息，包括名称，版本，支持的语言和应用程序等。
