@@ -10,7 +10,7 @@ CLItheme的命令行界面包含了大部分面向用户的功能，比如设置
 $ clitheme
 Usage:
 	clitheme apply-theme [themedef-file] [--overlay] [--preserve-temp] [--yes]
-	clitheme get-current-theme-info [--name] [--file-path]
+	clitheme show-info [--name] [--file-path]
 	clitheme unset-current-theme
 	clitheme update-theme [--yes]
 	clitheme generate-data [themedef-file] [--overlay]
@@ -108,12 +108,12 @@ Theme applied successfully
 Successfully updated info
 ```
 
-## `get-current-theme-info` - 获取当前主题信息
+## `show-info` - 获取当前主题信息
 
-如需获取当前的主题信息，请使用`get-current-theme-info`指令。该指令会输出主题的详细信息，包括名称，版本，支持的语言和应用程序等。
+如需获取当前的主题信息，请使用`show-info`指令。该指令会输出主题的详细信息，包括名称，版本，支持的语言和应用程序等。
 
 ```plaintext
-$ clitheme get-current-theme-info
+$ clitheme show-info
 Currently installed theme(s):
 [1]: Example theme
 Version: 1.0
@@ -136,21 +136,21 @@ Supported apps:
 你可以指定`--name`选项以仅显示每个主题的名称或`--file-path`以仅显示每个主题的源文件路径。同时指定这两个选项时，名称和路径都会显示。
 
 ```plaintext
-$ clitheme get-current-theme-info --name
+$ clitheme show-info --name
 Currently installed theme(s):
 [1]: Example theme
 [2]: 颜文字样例主题
 ```
 
 ```plaintext
-$ clitheme get-current-theme-info --file-path
+$ clitheme show-info --file-path
 Currently installed theme(s):
 /home/user/Documents/example-theme.clithemedef.txt
 /home/user/Documents/textemojis.clithemedef.txt
 ```
 
 ```plaintext
-$ clitheme get-current-theme-info --name --file-path
+$ clitheme show-info --name --file-path
 Currently installed theme(s):
 [1]: Example theme
 /home/user/Documents/example-theme.clithemedef.txt
