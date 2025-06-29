@@ -11,7 +11,7 @@ $ clitheme
 Usage:
 	clitheme apply-theme [themedef-file] [--overlay] [--preserve-temp] [--yes]
 	clitheme show-info [--name] [--file-path]
-	clitheme unset-current-theme
+	clitheme remove-theme
 	clitheme update-theme [--yes]
 	clitheme generate-data [themedef-file] [--overlay]
 	clitheme --version
@@ -69,12 +69,12 @@ View at /tmp/clitheme-temp-XXXXXXXX
 Theme applied successfully
 ```
 
-## `unset-current-theme` - 取消应用/删除当前主题
+## `remove-theme` - 取消应用/删除当前主题
 
-如需取消应用或删除当前的主题数据，请使用`unset-current-theme`指令。删除数据后，支持的应用程序会停止使用自定义的字符串。
+如需取消应用或删除当前的主题数据，请使用`remove-theme`指令。删除数据后，支持的应用程序会停止使用自定义的字符串。
 
 ```plaintext
-$ clitheme unset-current-theme
+$ clitheme remove-theme
 Successfully removed the current theme data
 ```
 
