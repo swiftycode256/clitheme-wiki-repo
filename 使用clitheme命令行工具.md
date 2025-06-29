@@ -1,6 +1,6 @@
 # 使用`clitheme`命令行工具
 
-`clitheme`的命令行界面包含了大部分面向用户的功能，比如设置和修改主题、获取当前主题信息等。
+CLItheme的命令行界面包含了大部分面向用户的功能，比如设置和修改主题、获取当前主题信息等。
 
 ## 程序位置和名称
 
@@ -10,8 +10,8 @@
 $ clitheme
 Usage:
 	clitheme apply-theme [themedef-file] [--overlay] [--preserve-temp] [--yes]
-	clitheme get-current-theme-info [--name] [--file-path]
-	clitheme unset-current-theme
+	clitheme show-info [--name] [--file-path]
+	clitheme remove-theme
 	clitheme update-theme [--yes]
 	clitheme generate-data [themedef-file] [--overlay]
 	clitheme --version
@@ -69,12 +69,12 @@ View at /tmp/clitheme-temp-XXXXXXXX
 Theme applied successfully
 ```
 
-## `unset-current-theme` - 取消应用/删除当前主题
+## `remove-theme` - 取消应用/删除当前主题
 
-如需取消应用或删除当前的主题数据，请使用`unset-current-theme`指令。删除数据后，支持的应用程序会停止使用自定义的字符串。
+如需取消应用或删除当前的主题数据，请使用`remove-theme`指令。删除数据后，支持的应用程序会停止使用自定义的字符串。
 
 ```plaintext
-$ clitheme unset-current-theme
+$ clitheme remove-theme
 Successfully removed the current theme data
 ```
 
@@ -94,12 +94,26 @@ Successfully processed files
 Theme applied successfully
 ```
 
-## `get-current-theme-info` - 获取当前主题信息
+## `repair-theme` - 修复/重新生成主题数据
 
-如需获取当前的主题信息，请使用`get-current-theme-info`指令。该指令会输出主题的详细信息，包括名称，版本，支持的语言和应用程序等。
+`repair-theme`指令会使用当前数据中存储的定义文件来重新生成并应用主题数据，达到修复定义信息和数据库的目的。**该指令仅用于调试和开发用途。**
 
 ```plaintext
-$ clitheme get-current-theme-info
+$ clitheme repair-theme
+==> Processing files...
+Successfully processed files
+==> Applying theme...
+Theme applied successfully
+==> Updating info...
+Successfully updated info
+```
+
+## `show-info` - 获取当前主题信息
+
+如需获取当前的主题信息，请使用`show-info`指令。该指令会输出主题的详细信息，包括名称，版本，支持的语言和应用程序等。
+
+```plaintext
+$ clitheme show-info
 Currently installed theme(s):
 [1]: Example theme
 Version: 1.0
@@ -122,21 +136,21 @@ Supported apps:
 你可以指定`--name`选项以仅显示每个主题的名称或`--file-path`以仅显示每个主题的源文件路径。同时指定这两个选项时，名称和路径都会显示。
 
 ```plaintext
-$ clitheme get-current-theme-info --name
+$ clitheme show-info --name
 Currently installed theme(s):
 [1]: Example theme
 [2]: 颜文字样例主题
 ```
 
 ```plaintext
-$ clitheme get-current-theme-info --file-path
+$ clitheme show-info --file-path
 Currently installed theme(s):
 /home/user/Documents/example-theme.clithemedef.txt
 /home/user/Documents/textemojis.clithemedef.txt
 ```
 
 ```plaintext
-$ clitheme get-current-theme-info --name --file-path
+$ clitheme show-info --name --file-path
 Currently installed theme(s):
 [1]: Example theme
 /home/user/Documents/example-theme.clithemedef.txt
