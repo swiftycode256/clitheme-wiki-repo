@@ -20,7 +20,7 @@
 CLItheme所有字符串定义的路径名称将采用以下开发者和应用名称，并且永远会以这些名称开头。详见[应用程序和字符串定义API/应用程序适配/路径名称和数据结构](../应用程序和字符串定义API/应用程序适配/1.%20路径名称和数据结构.md)。
 
 - 开发者名称：`swiftycode`
-- 应用程序名称：CLItheme
+- 应用程序名称：`clitheme`
 
 所有的路径名称将会以`swiftycode clitheme`开头。比如说：`swiftycode clitheme example-definition`
 
