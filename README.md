@@ -1,6 +1,6 @@
 # CLItheme Wiki文档（`v2.0`）
 
-[**项目简介和样例展示**](./简介.md)
+[**项目简介和样例展示**](./简介)
 
 CLItheme项目的Wiki文档可以在这里查看：https://gitee.com/swiftycode/clitheme/wikis
 
