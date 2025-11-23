@@ -181,5 +181,3 @@ View at /tmp/clitheme-temp-XXXXXXXX
 $ clitheme --version
 clitheme version 2.0
 ```
-
-详细请见[**关于版本的重要信息**](关于版本的重要信息.md)。
