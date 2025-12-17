@@ -34,11 +34,11 @@
 {/header_section}
 ```
 
-## 多行内容段落
+## 多行文本段落
 
-多行内容段落允许你通过多行定义和输入内容。更多信息请见[多行内容段落](多行内容段落.md)。
+多行文本段落允许你通过多行定义和输入内容。更多信息请见[多行文本段落](多行文本段落.md)。
 
-你可以在以下定义使用多行内容段落：
+你可以在以下定义使用多行文本段落：
 
 - `description`（使用`[description]`和`[/description]`）
 - `supported_apps`（使用`[supported_apps]`和`[/supported_apps]`）
