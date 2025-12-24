@@ -26,17 +26,17 @@
 
 ```plaintext
 {header_section}
-    name example-app颜文字主题
-    description 为example-app制作的一个可爱的颜文字主题
-    version 1.0
-    locales zh_CN en_US
-    supported_apps example-app example-app-2
+    name: example-app颜文字主题
+    description: 为example-app制作的一个可爱的颜文字主题
+    version: 1.0
+    locales: zh_CN en_US
+    supported_apps: example-app example-app-2
 {/header_section}
 ```
 
 ## 多行文本段落
 
-多行文本段落允许你通过多行定义和输入内容。更多信息请见[多行文本段落](多行文本段落.md)。
+[多行文本段落](多行文本段落.md)允许你通过多行定义和输入内容。更多信息请见。
 
 你可以在以下定义使用多行文本段落：
 
