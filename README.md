@@ -1,7 +1,5 @@
 # CLItheme Wiki文档（`v2.1-dev`）
 
-[**项目简介和样例展示**](./简介.md)
-
 CLItheme项目的Wiki文档可以在这里查看：https://gitee.com/swiftycode/clitheme/wikis
 
 这些Wiki文档也可以在这个仓库内查看：https://gitee.com/swiftycode/clitheme-wiki-repo
