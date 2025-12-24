@@ -35,7 +35,8 @@
 
 如果找不到对应的字符串和路径名称，或者格式化获取的字符串时出现了错误，该函数会返回用format参数格式化后的`fallback_string`。
 
-**注意：** 请务必确保`fallback_string`能被成功使用`str.format`函数格式化，并且所有的format参数都被`fallback_string`引用，否则调用此函数时会发生错误。
+> [!NOTE]
+>  请务必确保`fallback_string`能被成功使用`str.format`函数格式化，并且所有的format参数都被`fallback_string`引用，否则调用此函数时会发生错误。
 
 ### `entry_exists`
 
@@ -59,7 +60,8 @@
 
 - 设定`overlay`为`True`以把当前定义文件叠加到当前数据上。
 
-**注意：** 请将**文件内容**传递到这个函数中，不要传递文件的路径名称。
+> [!NOTE]
+>  请将**文件内容**传递到这个函数中，不要传递文件的路径名称。
 
 ### `set_local_themedefs`
 

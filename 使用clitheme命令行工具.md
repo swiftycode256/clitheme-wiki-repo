@@ -50,7 +50,8 @@ Theme applied successfully
 $ clitheme apply-theme --overlay example-theme.clithemedef.txt
 ```
 
-**注意：** 使用此选项时需要确保之前已经设定过主题。
+> [!NOTE]
+>  使用此选项时需要确保之前已经设定过主题。
 
 **提示：** 你可以通过此方法叠加多个语言但字符串路径名称相同的的主题定义文件，因为该功能只会覆盖字符串对应的语言。
 
