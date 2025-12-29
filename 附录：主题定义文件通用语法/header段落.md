@@ -4,12 +4,12 @@
 
 ## 基本语法
 
-这些基本信息需要在`header`段落内被定义。如需创建`header`段落，请使用`{header_section}`开始段落和`{/header_section}`结束段落。**在所有的定义文件中，这个段落是需要的。**
+这些基本信息需要在`header`段落内被定义。如需创建`header`段落，请使用`{header}`开始段落和`{/header}`结束段落。**在所有的定义文件中，这个段落是需要的。**
 
 ```plaintext
-{header_section}
+{header}
     <...>
-{/header_section}
+{/header}
 ```
 
 在`header`段落内可以定义以下信息。你仅需要定义`name`条目，但是建议定义以下所有的信息。
@@ -26,13 +26,13 @@
 下面将展示一个`header`段落样例：
 
 ```plaintext
-{header_section}
+{header}
     name: example-app颜文字主题
     description: 为example-app制作的一个可爱的颜文字主题
     version: 1.0
     locales: zh_CN en_US
     supported_apps: example-app example-app-2
-{/header_section}
+{/header}
 ```
 
 ## 多行文本段落
@@ -48,7 +48,7 @@
 在`[supported_apps]`和`[locales]`中，多个项目标注将以换行分开，而不是空格分开。这允许你在项目名称内插入空格。比如：
 
 ```plaintext
-{header_section}
+{header}
     # <...>
     [description]
         Some description here
@@ -63,7 +63,7 @@
         App two
         App three
     [/supported_apps]
-{/header_section}
+{/header}
 ```
 
 使用`clitheme show-info`列出信息时会这样展示：
