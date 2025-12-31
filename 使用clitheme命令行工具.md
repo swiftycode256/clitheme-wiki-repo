@@ -9,22 +9,24 @@ CLItheme的命令行界面包含了大部分面向用户的功能，比如设置
 ```plaintext
 $ clitheme
 Usage:
-	clitheme apply-theme [themedef-file] [--overlay] [--preserve-temp] [--yes]
-	clitheme show-info [--name] [--file-path]
-	clitheme remove-theme
-	clitheme update-theme [--yes]
-	clitheme generate-data [themedef-file] [--overlay]
-	clitheme --version
-	clitheme --help
+        clitheme apply-theme [file] (--overlay) (--preserve-temp) (--yes)
+        clitheme show-info (--name) (--file-path)
+        clitheme remove-theme
+        clitheme update-theme (--yes)
+        clitheme generate-data [file] (--overlay)
+        clitheme repair-theme
+        clitheme --version
+        clitheme --help
 ```
 
-如果你使用的是最新的开发版本，则需要直接调用仓库中的模块文件。
-
-```plaintext
-# 在仓库根目录执行：
-$ python3 -m src.clitheme
-<...>
-```
+> [!TIP]
+> 如果你使用的是最新的开发版本，则需要直接调用仓库中的模块文件。
+> 
+> ```plaintext
+> # 在仓库根目录执行：
+> $ python3 -m src.clitheme
+> <...>
+> ```
 
 ## `apply-theme` - 应用主题
 
@@ -32,15 +34,13 @@ $ python3 -m src.clitheme
 
 ```plaintext
 $ clitheme apply-theme example-theme.clithemedef.txt
-==> Processing files...
-Successfully processed files
-==> Applying theme...
+==> Successfully processed files
 Theme applied successfully
 ```
 
-你可以指定`--yes`选项以跳过确认提示。
-
-**提示：** 你可以同时指定多个文件名称，以同时应用这些文件的定义。指定的文件会以从左到右的顺序应用，比如`clitheme apply-theme file1 file2`会先应用`file1`然后再应用`file2`，相当于先应用`file1`然后把`file2`中的定义叠加到当前数据上。
+> [!TIP]
+> - 你可以指定`--yes`选项以跳过确认提示。
+> - 你可以同时指定多个文件名称，以同时应用这些文件的定义。指定的文件会以从左到右的顺序应用，比如`clitheme apply-theme file1 file2`会先应用`file1`然后再应用`file2`，相当于先应用`file1`然后把`file2`中的定义叠加到当前数据上。
 
 ### 主题数据叠加
 
@@ -53,7 +53,8 @@ $ clitheme apply-theme --overlay example-theme.clithemedef.txt
 > [!NOTE]
 >  使用此选项时需要确保之前已经设定过主题。
 
-**提示：** 你可以通过此方法叠加多个语言但字符串路径名称相同的的主题定义文件，因为该功能只会覆盖字符串对应的语言。
+> [!TIP]
+> 你可以通过此方法叠加多个语言但字符串路径名称相同的的主题定义文件，因为该功能只会覆盖字符串对应的语言。
 
 ### 保留临时数据结构目录
 
@@ -63,10 +64,8 @@ $ clitheme apply-theme --overlay example-theme.clithemedef.txt
 
 ```plaintext
 $ clitheme apply-theme --preserve-temp example-theme.clithemedef.txt 
-==> Processing files...
-Successfully processed files
+==> Successfully processed files
 View at /tmp/clitheme-temp-XXXXXXXX
-==> Applying theme...
 Theme applied successfully
 ```
 
@@ -89,24 +88,8 @@ Successfully removed the current theme data
 
 ```plaintext
 $ clitheme update-theme
-==> Processing files...
-Successfully processed files
-==> Applying theme...
+==> Successfully processed files
 Theme applied successfully
-```
-
-## `repair-theme` - 修复/重新生成主题数据
-
-`repair-theme`指令会使用当前数据中存储的定义文件来重新生成并应用主题数据，达到修复定义信息和数据库的目的。**该指令仅用于调试和开发用途。**
-
-```plaintext
-$ clitheme repair-theme
-==> Processing files...
-Successfully processed files
-==> Applying theme...
-Theme applied successfully
-==> Updating info...
-Successfully updated info
 ```
 
 ## `show-info` - 获取当前主题信息
@@ -159,6 +142,16 @@ Currently installed theme(s):
 /home/user/Documents/textemojis.clithemedef.txt
 ```
 
+## `repair-theme` - 修复/重新生成主题数据
+
+`repair-theme`指令会使用当前数据中存储的定义文件来重新生成并应用主题数据，达到修复定义信息和数据库的目的。**该指令仅用于调试和开发用途。**
+
+```plaintext
+$ clitheme repair-theme
+==> Successfully processed files
+Theme applied successfully
+```
+
 ## `generate-data` - 生成数据结构
 
 使用`generate-data`指令会在临时目录中生成数据结构。该指令的功能和`apply-theme`指令相似，只是不会应用主题而已。**该指令仅用于调试和开发用途。**
@@ -169,8 +162,7 @@ Currently installed theme(s):
 
 ```plaintext
 $ clitheme generate-data example-theme.clithemedef.txt
-==> Processing files...
-Successfully processed files
+==> Successfully processed files
 View at /tmp/clitheme-temp-XXXXXXXX
 ```
 
@@ -182,3 +174,27 @@ View at /tmp/clitheme-temp-XXXXXXXX
 $ clitheme --version
 clitheme version 2.0
 ```
+
+# 自定义命令行界面的输出
+
+你可以通过[编写主题定义文件](./应用程序和字符串定义API/编写定义文件.md)对CLItheme的命令行界面输出进行修改和自定义。
+
+## 使用源代码内的本地化文件
+
+为了让CLItheme的命令行工具的提示信息适配中文，本项目使用了主题定义文件来实现这个功能。请在仓库源代码中找到这些文件，并且作为模版使用。如需自定义这些提示信息，请复制这些文件并添加你想要的修改。之后，请使用`clitheme apply-theme`应用主题。应用后，更改会立即生效。
+
+请保留字符串中带有花括号的词汇，比如`{content}`，否则自定义文本将不会生效。
+
+这些文件可以在以下地址中找到：
+
+- https://gitee.com/swiftycode/clitheme/tree/latest-STABLE/src/clitheme/strings
+- https://github.com/swiftycode256/clitheme/tree/latest-STABLE/src/clitheme/strings
+
+## 开发者和应用名称
+
+CLItheme所有字符串定义的[路径名称](./应用程序和字符串定义API/应用程序适配/1.%20路径名称和数据结构.md)将采用以下开发者和应用名称：
+
+- 开发者名称：`swiftycode`
+- 应用程序名称：`clitheme`
+
+所有的路径名称将会以`swiftycode clitheme`开头。比如说：`swiftycode clitheme example-definition`
