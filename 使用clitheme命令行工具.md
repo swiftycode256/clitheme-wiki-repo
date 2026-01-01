@@ -33,7 +33,7 @@ Usage:
 如需应用主题定义文件，请使用`apply-theme`指令，并且提供文件名称。比如：
 
 ```plaintext
-$ clitheme apply-theme example-theme.clithemedef.txt
+$ clitheme apply-theme example-theme.ctdef.txt
 ==> Successfully processed files
 Theme applied successfully
 ```
@@ -47,7 +47,7 @@ Theme applied successfully
 默认情况下，这个指令会覆盖之前的主题数据。你可以通过`--overlay`选项以叠加定义和数据。新的字符串会被添加到当前的数据中，并且已存在的字符串会被覆盖。
 
 ```plaintext
-$ clitheme apply-theme --overlay example-theme.clithemedef.txt
+$ clitheme apply-theme --overlay example-theme.ctdef.txt
 ```
 
 > [!NOTE]
@@ -63,7 +63,7 @@ $ clitheme apply-theme --overlay example-theme.clithemedef.txt
 在该模式下，该指令会输出临时目录的路径。你可以通过此路径查看被保留的临时目录。
 
 ```plaintext
-$ clitheme apply-theme --preserve-temp example-theme.clithemedef.txt 
+$ clitheme apply-theme --preserve-temp example-theme.ctdef.txt 
 ==> Successfully processed files
 View at /tmp/clitheme-temp-XXXXXXXX
 Theme applied successfully
@@ -129,17 +129,17 @@ Currently installed theme(s):
 ```plaintext
 $ clitheme show-info --file-path
 Currently installed theme(s):
-/home/user/Documents/example-theme.clithemedef.txt
-/home/user/Documents/textemojis.clithemedef.txt
+/home/user/Documents/example-theme.ctdef.txt
+/home/user/Documents/textemojis.ctdef.txt
 ```
 
 ```plaintext
 $ clitheme show-info --name --file-path
 Currently installed theme(s):
 [1]: Example theme
-/home/user/Documents/example-theme.clithemedef.txt
+/home/user/Documents/example-theme.ctdef.txt
 [2]: 颜文字样例主题
-/home/user/Documents/textemojis.clithemedef.txt
+/home/user/Documents/textemojis.ctdef.txt
 ```
 
 ## `repair-theme` - 修复/重新生成主题数据
@@ -161,7 +161,7 @@ Theme applied successfully
 你也可以同时指定多个文件，原理和`apply-theme`一样。
 
 ```plaintext
-$ clitheme generate-data example-theme.clithemedef.txt
+$ clitheme generate-data example-theme.ctdef.txt
 ==> Successfully processed files
 View at /tmp/clitheme-temp-XXXXXXXX
 ```
