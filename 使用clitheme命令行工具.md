@@ -8,11 +8,11 @@ CLItheme的命令行界面包含了大部分面向用户的功能，比如设置
 
 ```plaintext
 $ clitheme
-Usage:
+使用方式：
         clitheme apply-theme [file] (--overlay) (--preserve-temp) (--yes)
+        clitheme update-theme (--yes) (--preserve-temp)
         clitheme show-info (--name) (--file-path)
-        clitheme remove-theme
-        clitheme update-theme (--yes)
+        clitheme remove-theme (--yes)
         clitheme generate-data [file] (--overlay)
         clitheme repair-theme
         clitheme --version
@@ -34,8 +34,12 @@ Usage:
 
 ```plaintext
 $ clitheme apply-theme example-theme.ctdef.txt
-==> Successfully processed files
-Theme applied successfully
+这些主题定义文件将会通过以下顺序被应用：
+        1: /dev/stdin
+如果继续，当前的主题数据将会被覆盖。
+是否继续操作？[y/n] y
+==> 已成功处理文件
+已成功应用主题
 ```
 
 > [!TIP]
@@ -69,28 +73,34 @@ View at /tmp/clitheme-temp-XXXXXXXX
 Theme applied successfully
 ```
 
-## `remove-theme` - 取消应用/删除当前主题
-
-如需取消应用或删除当前的主题数据，请使用`remove-theme`指令。删除数据后，支持的应用程序会停止使用自定义的字符串。
-
-```plaintext
-$ clitheme remove-theme
-Successfully removed the current theme data
-```
-
 ## `update-theme` - 重新应用之前的主题定义文件
 
 `update-theme`指令会重新应用在之前`apply-theme`操作中指定的主题定义文件，方便修改这些文件时重新应用更改（无需重新指定文件路径）。如果在之前的`apply-theme`操作中使用了`--overlay`选项，则会使用之前所有有关的`apply-theme`操作中指定的文件（当前主题定义中用到的）。
 
 使用这个指令时，请确保之前使用的主题定义文件没有被删除或移动，否则操作会失败。
 
-你可以指定`--yes`选项以跳过确认提示。
+你可以指定`--yes`选项跳过确认提示，并指定`--preserve-temp`保留临时目录。
 
 ```plaintext
 $ clitheme update-theme
 ==> Successfully processed files
 Theme applied successfully
 ```
+
+## `remove-theme` - 取消应用/删除当前主题
+
+如需取消应用或删除当前的主题数据，请使用`remove-theme`指令。删除数据后，支持的应用程序会停止使用自定义的字符串。
+
+```plaintext
+$ clitheme remove-theme
+当前设定的主题：
+[1]: Example theme
+[2]: 颜文字样例主题
+是否移除这些主题？[y/n] y
+已成功移除当前主题数据
+```
+
+你可以指定`--yes`选项跳过确认提示。
 
 ## `show-info` - 获取当前主题信息
 
@@ -142,19 +152,9 @@ Currently installed theme(s):
 /home/user/Documents/textemojis.ctdef.txt
 ```
 
-## `repair-theme` - 修复/重新生成主题数据
-
-`repair-theme`指令会使用当前数据中存储的定义文件来重新生成并应用主题数据，达到修复定义信息和数据库的目的。**该指令仅用于调试和开发用途。**
-
-```plaintext
-$ clitheme repair-theme
-==> Successfully processed files
-Theme applied successfully
-```
-
 ## `generate-data` - 生成数据结构
 
-使用`generate-data`指令会在临时目录中生成数据结构。该指令的功能和`apply-theme`指令相似，只是不会应用主题而已。**该指令仅用于调试和开发用途。**
+使用`generate-data`指令会在临时目录中生成数据结构。该指令的功能和`apply-theme`指令相似，只是不会应用主题而已。**该指令仅用于调试用途。**
 
 指定`--overlay`选项以生成把主题文件叠加在当前数据上的数据结构，用法和`apply-theme`相同。
 
@@ -166,13 +166,23 @@ $ clitheme generate-data example-theme.ctdef.txt
 View at /tmp/clitheme-temp-XXXXXXXX
 ```
 
+## `repair-theme` - 修复/重新生成主题数据
+
+`repair-theme`指令会使用当前数据中存储的定义文件来重新生成并应用主题数据，达到修复定义信息和数据库的目的。**该指令仅用于调试用途。**
+
+```plaintext
+$ clitheme repair-theme
+==> Successfully processed files
+Theme applied successfully
+```
+
 ## `--version` - 输出版本信息
 
 `--version`指令会输出版本信息，比如：
 
 ```plaintext
 $ clitheme --version
-clitheme version 2.0
+CLItheme version 2.1
 ```
 
 # 自定义命令行界面的输出
