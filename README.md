@@ -1,4 +1,4 @@
-# CLItheme Wiki文档（`v2.1-dev`）
+# CLItheme Wiki文档（`v2.1`）
 
 CLItheme项目的Wiki文档可以在这里查看：https://gitee.com/swiftycode/clitheme/wikis
 
@@ -8,7 +8,7 @@ GitHub镜像仓库：https://github.com/swiftycode256/clitheme-wiki-repo
 
 这些仓库包含最新的更改以及开发中的内容。如需提交Issues和Pull Requests，请通过上方的任意一个仓库提交。
 
-# CLItheme Wiki pages (`v2.1-dev`)
+# CLItheme Wiki pages (`v2.1`)
 
 The Wiki pages for CLItheme can be viewed here: https://gitee.com/swiftycode/clitheme/wikis
 
