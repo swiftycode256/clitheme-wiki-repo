@@ -2,20 +2,20 @@
 
 CLItheme项目的Wiki文档可以在这里查看：https://gitee.com/swiftycode/clitheme/wikis
 
-这些Wiki文档也可以在这个仓库内查看：https://gitee.com/swiftycode/clitheme-wiki-repo
+这些Wiki文档也可以在以下仓库查看：
 
-GitHub镜像仓库：https://github.com/swiftycode256/clitheme-wiki-repo
+- https://gitee.com/swiftycode/clitheme-wiki-repo
+- https://github.com/swiftycode256/clitheme-wiki-repo
 
-这些仓库包含最新的更改以及开发中的内容。如需提交Issues和Pull Requests，请通过上方的任意一个仓库提交。
+这些仓库也包含开发中版本的文档（`latest-dev`分支）。如需提交Issues和Pull Requests，请通过上方的任意一个仓库提交。
 
 # CLItheme Wiki pages \(`v2.1`\)
 
 The Wiki pages for CLItheme can be viewed here: https://gitee.com/swiftycode/clitheme/wikis
 
-It is also available in this repository: https://gitee.com/swiftycode/clitheme-wiki-repo
+They are also available in the following repositories:
 
-Mirror repository on GitHub: https://github.com/swiftycode256/clitheme-wiki-repo
+- https://gitee.com/swiftycode/clitheme-wiki-repo
+- https://github.com/swiftycode256/clitheme-wiki-repo
 
-These repositories contain the latest changes as well as content that are in development. If you want to submit Issues or Pull Requests, please submit them in any of these repositories above.
-
-**Note:** The Wiki documents are currently available in Chinese only. I might not have adequate time and effort to provide an English version of the documentation. If you want to contribute English translations, you are welcome to do so through Pull Requests.
+These repositories also contain docs for versions that are in development (`latest-dev` branch). If you want to submit Issues or Pull Requests, please submit them in any of these repositories above.
