@@ -20,7 +20,7 @@ String entries are defined in the `entries` section:
 
 To define a string entry, use the `[entry]` block and include the [path name](./Developer%20docs/1.%20Path%20names%20and%20data%20structure.md) of the entry, such as `[entry] com.example example-app text-one`.
 
-One core design principle of CLItheme is [locale support](../[Appendix]%20Common%20syntax%20of%20theme%20definition%20files/Locale%20support.md), so the content of a string entry are defined in different locale entries, which has the syntax `locale[<Locales>]: <Content>`. For a string entry, applications will retrieve the string content from the relevant locale entry based on the current system locale.
+One core design principle of CLItheme is [locale support](../[Appendix]%20Common%20syntax%20of%20theme%20definition%20files/Locale%20support.md), so the contents of a string entry are defined in different locale entries, which has the syntax `locale[<Locales>]: <Content>`. For a string entry, applications will retrieve the string content from the relevant locale entry based on the current system locale.
 
 Locale names must be in the Linux system locale format, such as `zh_CN` and `en_US`. For more information, please see [Locale support](../[Appendix]%20Common%20syntax%20of%20theme%20definition%20files/Locale%20support.md).
 
@@ -135,7 +135,7 @@ When the content of multiple string entries are the same, you can specify multip
 {/entries}
 ```
 
-## 编写字符串的一些注意事项
+## Things to note when writing string entries
 
 If the string entries doesn't work properly in applications, try the following:
 
