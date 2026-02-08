@@ -14,7 +14,7 @@ All definition files must use `UTF-8` encoding. This is especially important on 
 
 In theme definition files, sections are used to differentiate different types of content. Each section corresponds to a specific feature, containing different content definitions. Some of them include `{entries}`, `{substrules}`, `{manpages}`.
 
-All definition files contain the `header` section (`{header}`), which defines basic information and metadata for the theme, such as name, description, and version. For more information, see the [header section](header%20section.md) article.
+All definition files contain the `header` section (`{header}`), which defines basic information and metadata for the theme, such as name, description, and version. For more information, see the [header section](header%20section) article.
 
 > [!NOTE]
 > The examples in this documentation may contain indents. It is only used for readability and is not required. However, it is recommended to use indents for readability.

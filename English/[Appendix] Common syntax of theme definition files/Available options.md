@@ -71,7 +71,7 @@ Value:
 
 The following options are applicable to most text content and multi-line content blocks. Use `no<Option>` to disable them, such as `nosubstvar`.
 
-- `substvar`: Replace content variable references in content with the variable content; see [Content variables](Content%20variables.md) for more information
+- `substvar`: Replace content variable references in content with the variable content; see [Content variables](Content%20variables) for more information
 - `linebounds`: Support adding line boundary character `|` at the start and end of content, allowing leading and trailing spaces to be inserted
     - When this option is enabled, all content starting with `|` must end with this character, or else syntax error occurs
     - **Some fields like path names do not preserve leading and trailing spaces even if line boundaries are used**

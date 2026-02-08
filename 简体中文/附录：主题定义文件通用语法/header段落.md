@@ -28,7 +28,7 @@
 
 ## 多行文本段落
 
-你可以在以下定义使用[多行文本段落](多行文本段落.md)：
+你可以在以下定义使用[多行文本段落](多行文本段落)：
 
 - `description`（使用`[description]`和`[/description]`）
 - `supported_apps`（使用`[supported_apps]`和`[/supported_apps]`）
