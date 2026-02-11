@@ -1,6 +1,6 @@
 # Documentation for frontend module
 
-This article contains the full documentation for the `frontend` module. For more information, please see [Using the frontend module](3.%20Using%20the%20frontend%20module.md).
+This article contains the full documentation for the `frontend` module. For more information, please see [Using the frontend module](3.%20Using%20the%20frontend%20module).
 
 ## `FetchDescriptor` class
 
@@ -48,7 +48,7 @@ If `domain_name`, `app_name`, and `subsections` arguments exist, they will be ad
 
 ## Setting a local theme definition file
 
-For more information, please see [Using local definition files](Using%20local%20definition%20files.md).
+For more information, please see [Using local definition files](Using%20local%20definition%20files).
 
 ### `set_local_themedef`
 

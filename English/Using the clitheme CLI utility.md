@@ -160,7 +160,7 @@ CLItheme version 2.1
 
 # Customize the messages of `clitheme`
 
-You can customize the output messages of `clitheme` by [writing string entries](./String%20entries%20and%20frontend%20API/Writing%20definition%20files.md).
+You can customize the output messages of `clitheme` by [writing string entries](./String%20entries%20and%20frontend%20API/Writing%20definition%20files).
 
 ## Using localization files in source code
 
@@ -175,7 +175,7 @@ The templates can be found here:
 
 ## Domain and app names
 
-The [path names](./String%20entries%20and%20frontend%20API/Developer%20docs/1.%20Path%20names%20and%20data%20structure.md) of string entries used by `clitheme` follows this format:
+The [path names](./String%20entries%20and%20frontend%20API/Developer%20docs/1.%20Path%20names%20and%20data%20structure) of string entries used by `clitheme` follows this format:
 
 - Domain name: `swiftycode`
 - App name: `clitheme`

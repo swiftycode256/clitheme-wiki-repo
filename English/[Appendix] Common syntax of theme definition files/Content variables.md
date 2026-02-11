@@ -27,7 +27,7 @@ Variables defined outside of a section is in the global scope. **Variables defin
 
 ## Using content variables
 
-To use content variables, [enable](Available%20options.md) the `substvar` option and use the `{{<Variable name>}}` syntax in content, such as `{{example_var}}`.
+To use content variables, [enable](Available%20options) the `substvar` option and use the `{{<Variable name>}}` syntax in content, such as `{{example_var}}`.
 
 ```plaintext
 setvar[name]: Vim

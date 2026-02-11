@@ -28,7 +28,7 @@ The following information entries can be defined in the `header` section. The on
 
 ## Multi-line content block
 
-You can use [multi-line content blocks](Multi-line%20content%20block.md) for the following entries:
+You can use [multi-line content blocks](Multi-line%20content%20block) for the following entries:
 
 - `description`: with `[description]` and `[/description]`
 - `supported_apps`: with `[supported_apps]` and `[/supported_apps]`
