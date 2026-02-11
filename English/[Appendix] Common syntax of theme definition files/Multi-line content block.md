@@ -20,9 +20,9 @@ Some definitions support using multi-line content blocks to define its contents.
 
 ## How indents and edge spaces are processed
 
-The common length of indents of all lines in a content block are deducted from each line (tab characters equal 8 spaces). This mean that only the difference of indents between lines are kept. If you want to add common indents for all lines, you can [specify](Available%20options.md#How%20to%20set%20options) the `leadtabs:<n>` or `leadindents:<n>` options; the former adds `<n>` tab characters, while the latter adds `<n>` spaces as indents.
+The common length of indents of all lines in a content block are deducted from each line (tab characters equal 8 spaces). This mean that only the difference of indents between lines are kept. If you want to add common indents for all lines, you can [specify](Available%20options.md) the `leadtabs:<n>` or `leadindents:<n>` options; the former adds `<n>` tab characters, while the latter adds `<n>` spaces as indents.
 
-Trailing spaces in the content block are ignored. To add trailing spaces, [enable](Available%20options.md#How%20to%20set%20options) the `linebounds` option and place line boundaries in a line, such as `|line content    |`.
+Trailing spaces in the content block are ignored. To add trailing spaces, [enable](Available%20options.md) the `linebounds` option and place line boundaries in a line, such as `|line content    |`.
 
 > [!NOTE]
 > For certain list-like content blocks (like `[supported_apps]` and `[filter_cmds]`), no edge spaces and indents are preserved and indenting options are not allowed.
